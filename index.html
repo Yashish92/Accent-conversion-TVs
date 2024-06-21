@@ -143,21 +143,31 @@
         <h2 class="title is-3">Articulatory Representations from Speech Inversion</h2>
         <div class="content has-text-justified">
           <p>
-            Acoustic-to-articulatory speech inversion (SI) aims to infer articulatory dynamics from spoken sounds [1]. While efforts to interpret articulatory movements from continuous speech signals have a long history [2], they have typically been limited to tracking specific parts of the vocal tract, like the upper and lower lips, tongue tip, and velum closure. However, it’s essential not only to understand the primary effects of individual vocal tract movements, but also to grasp how these articulators interact. For instance, articulators such as the lips and jaw often cooperate to achieve specific vocal tract shapes [3]. Consequently, general SI systems prioritize understanding vocal tract constriction, estimating the degree and position of functional tract variables (TVs; from Articulatory Phonology in [3]), rather than solely focusing on individual articulator movement. During SI, acoustic features extracted from speech signals are used to predict these tract variables. This process involves learning an inverse mapping by training on a dataset containing matched acoustic and directly observed articulatory data.          </p>
+            Acoustic-to-articulatory speech inversion (SI) aims to infer articulatory dynamics from spoken sounds [1]. While efforts to interpret articulatory movements from continuous speech signals have a long history [2], they have typically been limited to tracking specific parts of the vocal tract, like the upper and lower lips, tongue tip, and velum closure. However, it’s essential not only to understand the primary effects of individual vocal tract movements, but also to grasp how these articulators interact. For instance, articulators such as the lips and jaw often cooperate to achieve specific vocal tract shapes [3]. Consequently, general SI systems prioritize understanding vocal tract constriction, estimating the degree and position of functional tract variables (TVs; from Articulatory Phonology in [3]), rather than solely focusing on individual articulator movement. During SI, acoustic features extracted from speech signals are used to predict these tract variables. This process involves learning an inverse mapping by training on a dataset containing matched acoustic and directly observed articulatory data.
+          </p>
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <img src="./static/images/tv_overview.jpg" width="719" height="245"
+                 class="interpolation-image"
+                 alt="model overview for accent conversion with reference."/>
+            <h2 class="subtitle has-text-centered" style="margin-top: 10px;">
+              Vocal tract variables and related articulators. The color shaded TVs are extracted from a speech inversion system
+            </h2>
+          </div>
         </div>
       </div>
     </div>
+    
 
     <div class="container is-max-desktop">
-      <div class="hero-body" style="display: flex; justify-content: center;">
+      <div class="hero-body" style="display: flex; flex-direction: column; align-items: center;">
         <img src="./static/images/tv_overview.jpg" width="719" height="245"
              class="interpolation-image"
              alt="model overview for accent conversion with reference."/>
-        <h2 class="subtitle has-text-centered">
+        <h2 class="subtitle has-text-centered" style="margin-top: 10px;">
           Vocal tract variables and related articulators. The color shaded TVs are extracted from a speech inversion system
         </h2>
       </div>
-    </div>
+    </div>    
     <!--/ TVs -->
 
     <!-- AM model -->
