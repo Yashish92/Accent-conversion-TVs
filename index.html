@@ -137,6 +137,42 @@
     </div>
     <!--/ Abstract -->
 
+    <!-- TVs -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Articulatory Representations from Speech Inversion</h2>
+        <div class="content has-text-justified">
+          <p>
+            Acoustic-to-articulatory speech inversion (SI) aims to infer articulatory dynamics from spoken sounds [1]. While efforts to interpret articulatory movements from continuous speech signals have a long history [2], they have typically been limited to tracking specific parts of the vocal tract, like the upper and lower lips, tongue tip, and velum closure. However, it’s essential not only to understand the primary effects of individual vocal tract movements, but also to grasp how these articulators interact. For instance, articulators such as the lips and jaw often cooperate to achieve specific vocal tract shapes [3]. Consequently, general SI systems prioritize understanding vocal tract constriction, estimating the degree and position of functional tract variables (TVs; from Articulatory Phonology in [3]), rather than solely focusing on individual articulator movement. During SI, acoustic features extracted from speech signals are used to predict these tract variables. This process involves learning an inverse mapping by training on a dataset containing matched acoustic and directly observed articulatory data.          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ TVs -->
+
+    <!-- AM model -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Proposed Acoustic Model</h2>
+        <div class="content has-text-justified">
+          <p>
+            The proposed multi-task learning based acoustic model (AM) contains two bidirectional long short memory (BiLSTM) layers followed by up-sampling, dropout and fully connected (Linear) layers as shared model layers. A fully connected layer with softmax activation is used to estimate PPG outputs and a fully connected layer with tanh activation is used to estimate TV outputs. Figure 2 shows details of the model architecture implemented in PyTorch. Original train, dev and test splits (both -clean and -other) from the LibriSpeech dataset [4] was used to train all the acoustic model variants. All the audio files were first segmented to 2 second long segments and the shorter ones were zero padded at the end. As shown in figure 2, the acoustic model takes in HiddenUnit BERT (HuBERT) [5] speech embeddings extracted from the pre-trained HuBERT-large model as the input speech representation. The HuBERT speech embeddings are sampled at 50 Hz and have a dimensionality of 1024. Tri-phone Phonetic Posteriograms (PPGs) are extracted from a pretrained model [6] as one of the target speech representations. The extracted PPGs are sampled at 100Hz and have a dimensionality of 5816. As the other target speech representation, TVs are extracted from a pre-trained acoustic-to-articulatory speech inversion system. The TVs are sampled at 100 Hz and contain 6 distinct variables.  
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="./static/images/accent_conversion_AM.jpg" width="719" height="245"
+                   class="interpolation-image"
+                   alt="model overview for accent conversion with reference."/>
+        <h2 class="subtitle has-text-centered">
+          Proposed Multi-task learning based Acoustic model from which PPG only, TV only and Combined BNFs are extracted for accent conversion.
+        </h2>
+      </div>
+    </div>
+    <!--/ AM model -->
+
     <!-- Audio Samples -->
     <div class="columns is-centered">
       <div class="column is-four-fifths">
